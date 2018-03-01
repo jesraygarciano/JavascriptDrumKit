@@ -1,5 +1,4 @@
-window.addEventListener('keydown', function(e){
-	// console.log();
+function playSound(e){
 	const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
 	const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
 
@@ -8,22 +7,26 @@ window.addEventListener('keydown', function(e){
     audio.currentTime = 0; /*Rewind to the start*/
     audio.play();
 
-    this.classList.add('playing');
+    key.classList.add('playing');
 
     // console.log(key);
-});
+
+}
+
+	// console.log();
 
 function removeTransition(e){
 	// console.log(e);
 	if(e.propertyName !== 'transform') return; /*skip it if is not a transofrm*/
 
 	// console.log(this)
-	key.classList.remove('playing');
+	this.classList.remove('playing');
 }
 
 const keys = document.querySelectorAll('.key');	
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
+window.addEventListener('keydown', playSound);
 
   // function removeTransition(e) {
   //   if (e.propertyName !== 'transform') return;
