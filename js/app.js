@@ -8,7 +8,8 @@ window.addEventListener('keydown', function(e){
     audio.currentTime = 0; /*Rewind to the start*/
     audio.play();
 
-
+    key.classList.add('playing');
+    // console.log(key);
 });
 
   // function removeTransition(e) {
