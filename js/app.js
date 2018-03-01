@@ -8,13 +8,17 @@ window.addEventListener('keydown', function(e){
     audio.currentTime = 0; /*Rewind to the start*/
     audio.play();
 
-    key.classList.add('playing');
+    this.classList.add('playing');
 
     // console.log(key);
 });
 
 function removeTransition(e){
-	console.log(e);
+	// console.log(e);
+	if(e.propertyName !== 'transform') return; /*skip it if is not a transofrm*/
+
+	// console.log(this)
+	key.classList.remove('playing');
 }
 
 const keys = document.querySelectorAll('.key');	
